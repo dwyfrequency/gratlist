@@ -11,7 +11,7 @@ class App extends Component {
     const { gratListItems } = this.state;
     return (
       <div className="App">
-        <h1>Hello</h1>
+        <h1>What are you grateful for today?</h1>
         <ListContainer listItems={gratListItems} />
       </div>
     );

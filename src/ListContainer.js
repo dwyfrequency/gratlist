@@ -6,9 +6,11 @@ class ListContainer extends Component {
     return (
       <ul className="list-group">
         {this.props.listItems.map((item, idx) => {
+          // mx-auto: horiz centers li
+          // mb-2: applies a margin bottom
           return (
             <li
-              className="list-group-item mx-auto"
+              className="list-group-item mx-auto mb-2"
               style={{ width: "80%" }}
               key={idx}
             >
