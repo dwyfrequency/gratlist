@@ -3,6 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Summary 
+Create a SPA to enter 5 items that you are grateful for each day. We will create a basic graph displaying our most common grats per 7, 10, 30 day window. 
+
+## To Do: 
+- Create basic design layout with figma
+- Break up design into componets
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
