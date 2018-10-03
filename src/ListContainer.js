@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ListContainer.css";
 
 class ListContainer extends Component {
   render() {
@@ -6,7 +7,11 @@ class ListContainer extends Component {
       <ul className="list-group">
         {this.props.listItems.map((item, idx) => {
           return (
-            <li className="list-group-item" key={idx}>
+            <li
+              className="list-group-item mx-auto"
+              style={{ width: "80%" }}
+              key={idx}
+            >
               {item}
             </li>
           );
