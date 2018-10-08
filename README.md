@@ -7,6 +7,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Create a SPA to enter 5 items that you are grateful for each day. We will create a basic graph displaying our most common grats per 7, 10, 30 day window. 
 
 ## To Do: 
+- pick [bootstrap template](https://bootswatch.com/) 
 - Create basic design layout with figma
 - Break up design into componets
 
