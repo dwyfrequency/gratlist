@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ListForm.css";
+import Button from "./Button";
 
 class ListForm extends Component {
   state = {
@@ -30,6 +31,12 @@ class ListForm extends Component {
             id="btn-grat"
             disabled={this.props.listLength >= 5}
           />
+          {/* <Button
+            value="Add"
+            onClick={e => this.props.onClick(e, gratitudeEntry)}
+            className="btn btn-primary"
+            disabled={this.props.listLength >= 5}
+          /> */}
         </div>
       </form>
     );
