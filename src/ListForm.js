@@ -28,6 +28,7 @@ class ListForm extends Component {
             onClick={e => this.props.onClick(e, gratitudeEntry)}
             className="btn btn-primary"
             id="btn-grat"
+            disabled={this.props.listLength >= 5}
           />
         </div>
       </form>
