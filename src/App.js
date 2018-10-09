@@ -6,10 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
-    gratListItems: ["family", "free food", "housing situation"]
+    gratListItems: []
   };
 
-  handleAddGratitudeItem = item => {
+  handleAddGratitudeItem = (event, item) => {
+    event.preventDefault();
     this.setState({ gratListItems: this.state.gratListItems.concat(item) });
   };
 
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>What are you grateful for today?</h1>
-        <ListForm onClick={item => this.handleAddGratitudeItem(item)} />
+        <ListForm onClick={(e, item) => this.handleAddGratitudeItem(e, item)} />
         <ListContainer listItems={gratListItems} />
       </div>
     );
