@@ -9,7 +9,8 @@ Create a SPA to enter 5 items that you are grateful for each day. We will create
 ## To Do: 
 - pick [bootstrap template](https://bootswatch.com/) 
 - Create basic design layout with figma
-- Break up design into componets
+- Break up design into components
+- May want to make the button a seperate component - I'll want to have an add, modify, and delete 
 
 ## Table of Contents
 
