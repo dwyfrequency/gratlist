@@ -21,12 +21,25 @@ class App extends Component {
     });
   };
 
+  handleRemoveGratitudeItem = (event, item) => {
+    event.preventDefault();
+    this.setState(prevState => {
+      return {
+        gratListItems: prevState.gratListItems.filter(i => i !== item),
+        listLength: prevState.listLength - 1
+      };
+    });
+  };
+
   render() {
     const { gratListItems, listLength } = this.state;
     return (
       <div className="App">
         <GratHeader />
-        <GratListContainer listItems={gratListItems} />
+        <GratListContainer
+          listItems={gratListItems}
+          handleRemoveGratitudeItem={() => this.handleRemoveGratitudeItem}
+        />
         <GratListForm
           listLength={listLength}
           onClick={(e, item) => this.handleAddGratitudeItem(e, item)}

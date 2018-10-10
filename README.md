@@ -11,6 +11,7 @@ Create a SPA to enter 5 items that you are grateful for each day. We will create
 - Create basic design layout with figma
 - Break up design into components
 - May want to make the button a seperate component - I'll want to have an add, modify, and delete 
+- I want to add an X icon to my GratListItem, onClick this will delete it from the list. 
 
 ## Table of Contents
 

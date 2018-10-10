@@ -9,7 +9,13 @@ class GratListContainer extends Component {
         {this.props.listItems.map((gratEntry, idx) => {
           // mx-auto: horiz centers li
           // mb-2: applies a margin bottom
-          return <GratListItem key={idx}>{gratEntry}</GratListItem>;
+          return (
+            <GratListItem
+              key={idx}
+              gratEntry={gratEntry}
+              handleRemoveGratitudeItem={this.props.handleRemoveGratitudeItem}
+            />
+          );
         })}
       </ul>
     );
