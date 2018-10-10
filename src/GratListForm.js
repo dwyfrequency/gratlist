@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./ListForm.css";
+import "./GratListForm.css";
 import Button from "./Button";
 
-class ListForm extends Component {
+class GratListForm extends Component {
   state = {
     gratitudeEntry: ""
   };
@@ -43,4 +43,4 @@ class ListForm extends Component {
   }
 }
 
-export default ListForm;
+export default GratListForm;

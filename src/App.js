@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import ListContainer from "./ListContainer";
-import ListForm from "./ListForm.js";
+import GratListContainer from "./GratListContainer";
+import GratListForm from "./GratListForm";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import GratHeader from "./GratHeader";
 
 class App extends Component {
   state = {
@@ -24,12 +25,12 @@ class App extends Component {
     const { gratListItems, listLength } = this.state;
     return (
       <div className="App">
-        <h1>What are you grateful for today?</h1>
-        <ListForm
+        <GratHeader />
+        <GratListContainer listItems={gratListItems} />
+        <GratListForm
           listLength={listLength}
           onClick={(e, item) => this.handleAddGratitudeItem(e, item)}
         />
-        <ListContainer listItems={gratListItems} />
       </div>
     );
   }
