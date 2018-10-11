@@ -4,13 +4,14 @@ const GratListItem = props => {
   const { gratEntry, handleRemoveGratitudeItem } = props;
   console.log(handleRemoveGratitudeItem);
   return (
-    <li
-      className="list-group-item mx-auto mb-2"
-      style={{ width: "80%" }}
-      onClick={() => console.log("btn clicjed")}
-    >
-      {props.gratEntry}
-      {/* https://stackoverflow.com/questions/38619981/react-prevent-event-bubbling-in-nested-components-on-click */}
+    <li className="list-group-item mx-auto mb-2" style={{ width: "80%" }}>
+      {/* put text in span so we can click the text to edit it and the button can have a seperate onClick without propagation issues */}
+      <span onClick={e => console.log(e.target.textContent)}>
+        {props.gratEntry}
+      </span>
+      {/* https://stackoverflow.com/questions/38619981/react-prevent-event-bubbling-in-nested-components-on-click 
+      consider changing button to a component to prevent event propagation
+      click delegation*/}
       <button
         type="button"
         className="close"
