@@ -11,22 +11,22 @@ class App extends Component {
     listLength: 0
   };
 
-  handleAddGratitudeItem = (event, item) => {
-    event.preventDefault();
+  handleAddGratitudeItem = item => {
     this.setState(prevState => {
+      const newList = prevState.gratListItems.concat(item);
       return {
-        gratListItems: prevState.gratListItems.concat(item),
-        listLength: prevState.listLength + 1
+        gratListItems: newList,
+        listLength: newList.length
       };
     });
   };
 
-  handleRemoveGratitudeItem = (event, item) => {
-    event.preventDefault();
+  handleRemoveGratitudeItem = item => {
     this.setState(prevState => {
+      const newList = prevState.gratListItems.filter(i => i !== item);
       return {
-        gratListItems: prevState.gratListItems.filter(i => i !== item),
-        listLength: prevState.listLength - 1
+        gratListItems: newList,
+        listLength: newList.listLength
       };
     });
   };
@@ -38,11 +38,11 @@ class App extends Component {
         <GratHeader />
         <GratListContainer
           listItems={gratListItems}
-          handleRemoveGratitudeItem={() => this.handleRemoveGratitudeItem}
+          handleRemoveGratitudeItem={this.handleRemoveGratitudeItem}
         />
         <GratListForm
           listLength={listLength}
-          onClick={(e, item) => this.handleAddGratitudeItem(e, item)}
+          onClick={this.handleAddGratitudeItem}
         />
       </div>
     );

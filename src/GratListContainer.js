@@ -4,6 +4,7 @@ import GratListItem from "./GratListItem";
 
 class GratListContainer extends Component {
   render() {
+    const { handleRemoveGratitudeItem } = this.props;
     return (
       <ul className="list-group">
         {this.props.listItems.map((gratEntry, idx) => {
@@ -13,7 +14,7 @@ class GratListContainer extends Component {
             <GratListItem
               key={idx}
               gratEntry={gratEntry}
-              handleRemoveGratitudeItem={this.props.handleRemoveGratitudeItem}
+              handleRemoveGratitudeItem={handleRemoveGratitudeItem}
             />
           );
         })}
