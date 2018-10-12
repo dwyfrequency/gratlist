@@ -8,6 +8,8 @@ import GratHeader from "./GratHeader";
 class App extends Component {
   state = {
     gratListItems: [],
+    edit: false,
+    editListItem: "",
     listLength: 0
   };
 
@@ -31,18 +33,38 @@ class App extends Component {
     });
   };
 
+  selectedListItem = item => {
+    this.setState({
+      edit: true,
+      editListItem: item
+    });
+  };
+
+  // handleEditGratitudeItem = item => {
+  //   this.setState(prevState => {
+  //     const newList = prevState.gratListItems.reduce((accum, x) => {
+  //       if(item === x) {
+
+  //       }
+  //     }, [])
+  //   })
+  // }
+
   render() {
-    const { gratListItems, listLength } = this.state;
+    const { gratListItems, listLength, edit, editListItem } = this.state;
     return (
       <div className="App">
         <GratHeader />
         <GratListContainer
           listItems={gratListItems}
           handleRemoveGratitudeItem={this.handleRemoveGratitudeItem}
+          selectedListItem={this.selectedListItem}
         />
         <GratListForm
           listLength={listLength}
-          onClick={this.handleAddGratitudeItem}
+          handleAddGratitudeItem={this.handleAddGratitudeItem}
+          editing={edit}
+          editListItem={editListItem}
         />
       </div>
     );
