@@ -40,15 +40,17 @@ class App extends Component {
     });
   };
 
-  // handleEditGratitudeItem = item => {
-  //   this.setState(prevState => {
-  //     const newList = prevState.gratListItems.reduce((accum, x) => {
-  //       if(item === x) {
-
-  //       }
-  //     }, [])
-  //   })
-  // }
+  handleEditGratitudeItem = newListitem => {
+    this.setState(prevState => {
+      const newList = prevState.gratListItems.reduce((accum, listItem) => {
+        if (prevState.editListItem === listItem) {
+          return accum.concat(newListitem);
+        }
+        return accum.concat(listItem);
+      }, []);
+      return { gratListItems: newList };
+    });
+  };
 
   render() {
     const { gratListItems, listLength, edit, editListItem } = this.state;
@@ -65,6 +67,7 @@ class App extends Component {
           handleAddGratitudeItem={this.handleAddGratitudeItem}
           editing={edit}
           editListItem={editListItem}
+          handleEditGratitudeItem={this.handleEditGratitudeItem}
         />
       </div>
     );
