@@ -48,7 +48,7 @@ class App extends Component {
         }
         return accum.concat(listItem);
       }, []);
-      return { gratListItems: newList };
+      return { gratListItems: newList, edit: false, editListItem: "" };
     });
   };
 

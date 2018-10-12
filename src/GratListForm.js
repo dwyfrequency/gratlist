@@ -37,7 +37,10 @@ class GratListForm extends Component {
       <input
         type="button"
         value="Edit"
-        onClick={() => handleEditGratitudeItem(gratitudeEntry)}
+        onClick={() => {
+          handleEditGratitudeItem(gratitudeEntry);
+          this.resetForm();
+        }}
         className="btn btn-warning"
         id="btn-grat"
       />
