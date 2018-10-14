@@ -10,7 +10,15 @@ class App extends Component {
     gratListItems: [],
     edit: false,
     editListItem: "",
-    listLength: 0
+    disabled: false
+  };
+
+  setIsDisabled = () => {
+    if (this.state.gratListItems.length >= 4) {
+      this.setState({ disabled: true });
+    } else {
+      this.setState({ disabled: false });
+    }
   };
 
   handleAddGratitudeItem = item => {
@@ -18,7 +26,7 @@ class App extends Component {
       const newList = prevState.gratListItems.concat(item);
       return {
         gratListItems: newList,
-        listLength: newList.length
+        disabled: this.setIsDisabled()
       };
     });
   };
@@ -28,7 +36,7 @@ class App extends Component {
       const newList = prevState.gratListItems.filter(i => i !== item);
       return {
         gratListItems: newList,
-        listLength: newList.listLength
+        disabled: this.setIsDisabled()
       };
     });
   };
@@ -53,7 +61,7 @@ class App extends Component {
   };
 
   render() {
-    const { gratListItems, listLength, edit, editListItem } = this.state;
+    const { gratListItems, edit, editListItem, disabled } = this.state;
     return (
       <div className="App">
         <GratHeader />
@@ -63,7 +71,7 @@ class App extends Component {
           selectedListItem={this.selectedListItem}
         />
         <GratListForm
-          listLength={listLength}
+          disabled={disabled}
           handleAddGratitudeItem={this.handleAddGratitudeItem}
           editing={edit}
           editListItem={editListItem}

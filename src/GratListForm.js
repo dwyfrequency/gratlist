@@ -30,7 +30,8 @@ class GratListForm extends Component {
       handleAddGratitudeItem,
       handleEditGratitudeItem,
       listLength,
-      editing
+      editing,
+      disabled
     } = this.props;
     const btn = editing ? (
       <input
@@ -51,9 +52,8 @@ class GratListForm extends Component {
           handleAddGratitudeItem(gratitudeEntry);
           this.resetForm();
         }}
-        className="btn btn-primary"
-        id="btn-grat"
-        disabled={listLength >= 5}
+        className="btn btn-primary mt-2"
+        disabled={disabled}
       />
     );
     return (
@@ -67,13 +67,6 @@ class GratListForm extends Component {
             onChange={this.onFieldChange}
           />
           {btn}
-
-          {/* <Button
-            value="Add"
-            onClick={e => this.props.onClick(e, gratitudeEntry)}
-            className="btn btn-primary"
-            disabled={this.props.listLength >= 5}
-          /> */}
         </div>
       </form>
     );

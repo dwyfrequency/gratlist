@@ -5,11 +5,6 @@
 }
 
 .AddGratitudeForm > input[type="text"] {
-  margin: 0 auto 10px;
+  margin: 0 auto;
   width: 80%;
 }
-
-/* #btn-grat {
-  display: block;
-  margin: 0 auto;
-} */

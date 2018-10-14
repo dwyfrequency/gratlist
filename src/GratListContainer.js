@@ -6,7 +6,7 @@ class GratListContainer extends Component {
   render() {
     const { handleRemoveGratitudeItem, selectedListItem } = this.props;
     return (
-      <ul className="list-group">
+      <ul className="list-group mb-4">
         {this.props.listItems.map((gratEntry, idx) => {
           return (
             <GratListItem
