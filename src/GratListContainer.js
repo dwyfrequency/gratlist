@@ -8,8 +8,6 @@ class GratListContainer extends Component {
     return (
       <ul className="list-group">
         {this.props.listItems.map((gratEntry, idx) => {
-          // mx-auto: horiz centers li
-          // mb-2: applies a margin bottom
           return (
             <GratListItem
               key={idx}

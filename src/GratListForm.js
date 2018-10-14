@@ -30,8 +30,7 @@ class GratListForm extends Component {
       handleAddGratitudeItem,
       handleEditGratitudeItem,
       listLength,
-      editing,
-      editListItem
+      editing
     } = this.props;
     const btn = editing ? (
       <input

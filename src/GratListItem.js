@@ -2,7 +2,8 @@ import React from "react";
 
 const GratListItem = props => {
   const { gratEntry, handleRemoveGratitudeItem, selectedListItem } = props;
-  console.log(handleRemoveGratitudeItem);
+  // mx-auto: horiz centers li
+  // mb-2: applies a margin bottom
   return (
     <li className="list-group-item mx-auto mb-2" style={{ width: "80%" }}>
       {/* put text in span so we can click the text to edit it and the button can have a seperate onClick without propagation issues */}
