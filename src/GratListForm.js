@@ -29,7 +29,6 @@ class GratListForm extends Component {
     const {
       handleAddGratitudeItem,
       handleEditGratitudeItem,
-      listLength,
       editing,
       disabled
     } = this.props;

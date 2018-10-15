@@ -13,12 +13,38 @@ class App extends Component {
     disabled: false
   };
 
-  setIsDisabled = () => {
+  isDisabled = () => {
     if (this.state.gratListItems.length >= 4) {
-      this.setState({ disabled: true });
+      return true;
+      // this.setTimer();
     } else {
-      this.setState({ disabled: false });
+      return false;
     }
+  };
+
+  resetState = () => {
+    this.setState({
+      gratListItems: [],
+      edit: false,
+      editListItem: "",
+      disabled: false
+    });
+  };
+
+  // output gratlist to localstorage with date stamp
+  saveList = () => {
+    const listObj = {
+      ...this.state.gratListItems,
+      date: new Date().toISOString
+    };
+    localStorage.setItem("gratitudeList", JSON.stringify(listObj));
+  };
+
+  setTimer = () => {
+    setTimeout(() => {
+      this.saveList();
+      this.resetState();
+    }, 3000);
   };
 
   handleAddGratitudeItem = item => {
@@ -26,7 +52,7 @@ class App extends Component {
       const newList = prevState.gratListItems.concat(item);
       return {
         gratListItems: newList,
-        disabled: this.setIsDisabled()
+        disabled: this.isDisabled()
       };
     });
   };
@@ -36,7 +62,7 @@ class App extends Component {
       const newList = prevState.gratListItems.filter(i => i !== item);
       return {
         gratListItems: newList,
-        disabled: this.setIsDisabled()
+        disabled: this.isDisabled()
       };
     });
   };
