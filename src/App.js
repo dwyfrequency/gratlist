@@ -15,8 +15,9 @@ class App extends Component {
 
   isDisabled = () => {
     if (this.state.gratListItems.length >= 4) {
+      // if the add button is disabled, give it a few seconds before saving to local storage
+      this.setTimer();
       return true;
-      // this.setTimer();
     } else {
       return false;
     }
@@ -40,6 +41,7 @@ class App extends Component {
     localStorage.setItem("gratitudeList", JSON.stringify(listObj));
   };
 
+  // save the list then reset state and rerender the component
   setTimer = () => {
     setTimeout(() => {
       this.saveList();
