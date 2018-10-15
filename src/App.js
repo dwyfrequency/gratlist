@@ -35,9 +35,10 @@ class App extends Component {
   // output gratlist to localstorage with date stamp
   saveList = () => {
     const listObj = {
-      ...this.state.gratListItems,
-      date: new Date().toISOString
+      gratListItems: this.state.gratListItems,
+      date: new Date().toISOString()
     };
+    console.log(listObj);
     localStorage.setItem("gratitudeList", JSON.stringify(listObj));
   };
 
