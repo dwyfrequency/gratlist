@@ -34,22 +34,19 @@ class App extends Component {
 
   // output gratlist to localstorage with date stamp
   saveList = () => {
-    const prevListObj = localStorage.getItem("gratitudeList");
-    if (prevListObj) {
-      const prevList = JSON.parse(prevListObj);
-      const listObj = {
-        gratListItems: this.state.gratListItems,
-        date: new Date().toISOString()
-      };
+    const listObj = {
+      gratListItems: this.state.gratListItems,
+      date: new Date().toISOString()
+    };
+    const prevListObjStored = localStorage.getItem("gratitudeList");
+    if (prevListObjStored) {
+      const prevList = JSON.parse(prevListObjStored);
       localStorage.setItem(
         "gratitudeList",
         JSON.stringify(prevList.concat(listObj))
       );
     } else {
-      const listObj = {
-        gratListItems: this.state.gratListItems,
-        date: new Date().toISOString()
-      };
+      // make the gratlistobj an array and save it in LS
       localStorage.setItem("gratitudeList", JSON.stringify([listObj]));
     }
   };
