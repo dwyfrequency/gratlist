@@ -34,12 +34,24 @@ class App extends Component {
 
   // output gratlist to localstorage with date stamp
   saveList = () => {
-    const listObj = {
-      gratListItems: this.state.gratListItems,
-      date: new Date().toISOString()
-    };
-    console.log(listObj);
-    localStorage.setItem("gratitudeList", JSON.stringify(listObj));
+    const prevListObj = localStorage.getItem("gratitudeList");
+    if (prevListObj) {
+      const prevList = JSON.parse(prevListObj);
+      const listObj = {
+        gratListItems: this.state.gratListItems,
+        date: new Date().toISOString()
+      };
+      localStorage.setItem(
+        "gratitudeList",
+        JSON.stringify(prevList.concat(listObj))
+      );
+    } else {
+      const listObj = {
+        gratListItems: this.state.gratListItems,
+        date: new Date().toISOString()
+      };
+      localStorage.setItem("gratitudeList", JSON.stringify([listObj]));
+    }
   };
 
   // save the list then reset state and rerender the component
@@ -47,7 +59,7 @@ class App extends Component {
     setTimeout(() => {
       this.saveList();
       this.resetState();
-    }, 3000);
+    }, 5000);
   };
 
   handleAddGratitudeItem = item => {
