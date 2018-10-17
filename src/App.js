@@ -13,6 +13,21 @@ class App extends Component {
     disabled: false
   };
 
+  componentDidMount = () => {
+    // I may want to store the data in firebase as an object an not an array so i dont have to specify the index location like below (0.json)
+
+    fetch("https://react-gratlist.firebaseio.com/0.json")
+      .then(resp => resp.json())
+      .then(jsonData => console.log(JSON.stringify(jsonData)));
+
+    // cdm - invoked after the initial rendering
+    // https://github.com/dwyfrequency/completeGuideReact/blob/a64bf40850836130ff5c1fd159122c8cabfa163f/burger_builder_start/react-complete-guide/src/containers/BurgerBuilder/BurgerBuilder.jsx AND https://github.com/dwyfrequency/completeGuideReact/blob/a64bf40850836130ff5c1fd159122c8cabfa163f/burger_builder_start/react-complete-guide/src/axios-orders.js
+    // axios
+    //   .get("https://react-my-burger-jd.firebaseio.com/ingredients.json")
+    //   .then(resp => this.setState({ ingredients: resp.data }))
+    //   .catch(err => this.setState({ error: true }));
+  };
+
   isDisabled = () => {
     if (this.state.gratListItems.length >= 4) {
       // if the add button is disabled, give it a few seconds before saving to local storage
