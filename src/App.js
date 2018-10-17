@@ -15,7 +15,8 @@ class App extends Component {
 
   componentDidMount = () => {
     // I may want to store the data in firebase as an object an not an array so i dont have to specify the index location like below (0.json)
-
+    // in firebase, you access based on the node name like 0.json when you click the database ie. react-gratlist
+    // https://firebase.googleblog.com/2014/04/best-practices-arrays-in-firebase.html
     fetch("https://react-gratlist.firebaseio.com/0.json")
       .then(resp => resp.json())
       .then(jsonData => console.log(JSON.stringify(jsonData)));
