@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import GratListContainer from "./GratListContainer";
 import GratListForm from "./GratListForm";
 import "./App.css";
@@ -18,9 +19,13 @@ class App extends Component {
     // I may want to store the data in firebase as an object an not an array so i dont have to specify the index location like below (0.json)
     // in firebase, you access based on the node name like 0.json when you click the database ie. react-gratlist
     // https://firebase.googleblog.com/2014/04/best-practices-arrays-in-firebase.html
-    fetch("https://react-gratlist.firebaseio.com/0.json")
-      .then(resp => resp.json())
-      .then(jsonData => console.log(JSON.stringify(jsonData)));
+    axios
+      .get("https://react-gratlist.firebaseio.com/0.json")
+      // destructing the data from axios response
+      .then(({ data = {} }) => console.log(data));
+    // fetch("https://react-gratlist.firebaseio.com/0.json")
+    //   .then(resp => resp.json())
+    //   .then(jsonData => console.log(JSON.stringify(jsonData)));
 
     // cdm - invoked after the initial rendering
     // https://github.com/dwyfrequency/completeGuideReact/blob/a64bf40850836130ff5c1fd159122c8cabfa163f/burger_builder_start/react-complete-guide/src/containers/BurgerBuilder/BurgerBuilder.jsx AND https://github.com/dwyfrequency/completeGuideReact/blob/a64bf40850836130ff5c1fd159122c8cabfa163f/burger_builder_start/react-complete-guide/src/axios-orders.js
